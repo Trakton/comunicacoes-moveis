@@ -43,8 +43,8 @@ def build_location_grid(location_points):
     y_step = max(geoDist(down_left, up_left), geoDist(down_right, up_right))
     x_step = max(geoDist(down_left, down_right), geoDist(up_right, up_left))
 
-    lat_step = ((y_max - y_min) * 1e-2) / y_step
-    lon_step = ((x_max - x_min) * 1e-2) / x_step
+    lat_step = ((y_max - y_min) * 2e-2) / y_step
+    lon_step = ((x_max - x_min) * 2e-2) / x_step
 
     latitudes = np.arange(y_min - (lat_step * 10), y_max + (lat_step * 10), lat_step)
     latitudes = (latitudes[:-1] + latitudes[1:]) / 2

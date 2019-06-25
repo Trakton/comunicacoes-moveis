@@ -40,7 +40,7 @@ def plot_grid(grid, label, bts_coordinate):
     fig, ax = plt.subplots()
     plt.imshow(grid, cmap='bone', interpolation='nearest', origin='lower')
     ax.add_patch(patches.Rectangle((bts_coordinate[1] - 3,bts_coordinate[0] - 3), 6, 6, hatch='',fill=True, color='r'))
-    fig.savefig('results/fingerprints/{:d}.png'.format(label+1))
+    fig.savefig('results/fingerprints/bts-{:d}.png'.format(label+1))
 
 def get_grids(models, latitudes, longitudes, bts_coordinates):
     '''Receives a lat/long grid and computes the path loss

@@ -3,6 +3,7 @@ import numpy as np
 import grid
 import models
 import fingerprint
+import locate
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsRegressor
@@ -27,7 +28,10 @@ def main():
 
     knn = KNeighborsRegressor(n_neighbors=5)
     trained_models = models.train(train_points, train_path_loss, knn)
-    fingerprints = fingerprint.get_grids(trained_models, latitudes, longitudes, bts_coordinates)  
+    fingerprints = fingerprint.get_grids(trained_models, latitudes, longitudes, bts_coordinates) 
+
+    locate.predict_test_locations(fingerprints, latitudes, longitudes, test, bst_points)
+
 
 if __name__ == '__main__':
     main()
