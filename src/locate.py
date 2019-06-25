@@ -12,7 +12,7 @@ def predict_location(fingerprints, latitudes, longitudes, path_loss, bts_pos, cu
     ta_grid = time_advance.get_grid(latitudes, longitudes, bts_pos)
     ta_grid_mask = time_advance.grid_mask(ta_grid, current_ta)
     
-    min_distance = sys.float_info.min
+    min_distance = sys.float_info.max
     x = -1
     y = -1
     for k in range(latitudes.size):
@@ -39,8 +39,7 @@ def predict_test_locations(fingerprints, latitudes, longitudes, test, bts_pos):
         lat, long = predict_location(fingerprints, latitudes, longitudes, x[i], bts_pos, tas[i])
         error = geoDist((lat, long), (y[i][0], y[i][1]))
         errors.append(error)
-
-        print('User {:d} located.'.format(i))
+        print('User {:d} located at {:.6f}, {:.6f}.'.format(i, lat, long))
 
     errors = np.array(errors)
     std = np.std(errors)
