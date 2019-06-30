@@ -1,0 +1,6 @@
+Min Error: 0.89m
+Max Error: 386.12m
+Average Error: 65.25m
+Standard Deviation: 55.74m
+Mean Squared Error: 7363.86m
+Root Mean Squared Error (Precision): 85.81m

@@ -32,6 +32,5 @@ def main():
 
     locate.predict_test_locations(fingerprints, latitudes, longitudes, test, bst_points)
 
-
 if __name__ == '__main__':
     main()

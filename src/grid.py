@@ -30,6 +30,8 @@ def build_location_grid(location_points):
     Latitudes will go from lower to higher location point. 
     Longitudes will go from leftmost to rightmost.
     '''
+    step_in_meters = 20.0
+
     y_min = min(location_points, key=lambda x: x[0])[0]
     y_max = max(location_points, key=lambda x: x[0])[0]
     x_min = min(location_points, key=lambda x: x[1])[1]
@@ -43,8 +45,8 @@ def build_location_grid(location_points):
     y_step = max(geoDist(down_left, up_left), geoDist(down_right, up_right))
     x_step = max(geoDist(down_left, down_right), geoDist(up_right, up_left))
 
-    lat_step = ((y_max - y_min) * 2e-2) / y_step
-    lon_step = ((x_max - x_min) * 2e-2) / x_step
+    lat_step = ((y_max - y_min) * (step_in_meters/1000)) / y_step
+    lon_step = ((x_max - x_min) * (step_in_meters/1000)) / x_step
 
     latitudes = np.arange(y_min - (lat_step * 10), y_max + (lat_step * 10), lat_step)
     latitudes = (latitudes[:-1] + latitudes[1:]) / 2
