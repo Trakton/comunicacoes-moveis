@@ -15,7 +15,7 @@ def main():
     train_data = shuffle(train_data)
     train, test = train_test_split(train_data, test_size=0.1)
     train = train.dropna()
-    # test = pd.read_csv('data/LocTest.csv')
+    test = pd.read_csv('data/LocTest.csv')
     test = test.dropna()
 
     train_points = train.iloc[:, 1:3].values
